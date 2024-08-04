@@ -10,13 +10,12 @@ import AppContextProvider from "./context/AppContextProvider";
 function App() {
     return (
         <AppContextProvider>
+            <Navbar />
             <Routes>
-                <Route path="/" element={<Navbar />}>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/dashboard" element={<Dashboard />} />
-                    <Route path="/signup" element={<SignUp />} />
-                    <Route path="/signin" element={<SignIn />} />
-                </Route>
+                <Route path="/" element={<Home />} />
+                <Route path="/dashboard" element={<Dashboard />} />
+                <Route path="/signup" element={<SignUp />} />
+                <Route path="/signin" element={<SignIn />} />
                 <Route path="*" element={<NotFound />} />
             </Routes>
         </AppContextProvider>

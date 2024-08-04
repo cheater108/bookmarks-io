@@ -24,14 +24,7 @@ export default function SignUp() {
     }
 
     return (
-        <div
-            className="content"
-            style={{
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-            }}
-        >
+        <div className={styles.container}>
             <form action="" className={styles.form}>
                 <input
                     type="email"

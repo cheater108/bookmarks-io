@@ -1,27 +1,41 @@
 .container {
-    background-color: white;
+    background-color: aliceblue;
+    height: 100%;
     border-radius: 12px;
     position: relative;
     /* flex-grow: 1; */
-    box-shadow: 0 4px 8px 0 rgba(0 0, 0, 0.2);
-    margin-top: 16px;
-    margin-right: 16px;
+    /* box-shadow: 0 4px 8px 0 rgba(0 0, 0, 0.2); */
+}
+
+.heading {
+    padding: 1rem;
+    color: black;
+    text-align: center;
+    font-weight: 900;
+    font-size: 2rem;
 }
 
 .addbtn {
-    padding: 1em;
-    background-color: rgb(87, 85, 85);
+    background-color: black;
     color: white;
     border-radius: 22em;
     border: none;
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     position: absolute;
-    right: 10px;
-    top: 10px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    right: 20px;
+    top: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1rem;
 }
 
 .addbtn:hover {
     cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.817);
+}
+
+.links {
+    padding: 1em;
 }

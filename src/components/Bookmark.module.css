@@ -1,0 +1,25 @@
+.link {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border-radius: 12px;
+    transition: background-color 200ms;
+}
+
+.link:hover {
+    cursor: pointer;
+    background-color: rgb(213, 231, 247);
+}
+
+.left {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+.title {
+    font-weight: 600;
+}
+.italics {
+    font-style: italic;
+    color: rgba(40, 40, 40, 0.612);
+}

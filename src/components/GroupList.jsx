@@ -1,18 +1,17 @@
-import React from "react";
+import styles from "./GroupList.module.css";
 import GroupMenu from "./GroupMenu";
 
 export default function GroupList({ groups }) {
     return (
-        <div
-            style={{
-                padding: "1em",
-                width: "20%",
-            }}
-        >
-            {groups?.map((ele) => {
-                console.log(ele._id);
-                return <GroupMenu key={ele._id} name={ele.name} />;
-            })}
+        <div className={styles.container}>
+            <div className={styles.heading}>Groups</div>
+            <div className={styles.groups}>
+                {groups?.map((ele) => {
+                    return (
+                        <GroupMenu key={ele._id} name={ele.name} id={ele._id} />
+                    );
+                })}
+            </div>
         </div>
     );
 }

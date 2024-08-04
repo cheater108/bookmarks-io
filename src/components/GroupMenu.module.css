@@ -1,14 +1,13 @@
 .group {
-    background-color: white;
-    padding: 1em;
+    padding: 15px;
     border-radius: 12px;
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
     margin-bottom: 16px;
-    text-align: center;
-    border-bottom: 10px solid red;
+    font-weight: 500;
+    background-color: rgba(0, 0, 0, 0.1);
+    color: white;
+    /* transition: background-color 300ms; */
 }
 
 .group:hover {
     cursor: pointer;
-    opacity: 0.8;
 }

@@ -8,11 +8,7 @@ export default function NewBookmark({ modal, toggleModal }) {
             style={{ display: modal ? "flex" : "none" }}
         >
             <form className={styles.form}>
-                <label htmlFor="name">Name</label>
-                <br />
                 <input type="text" id="name" placeholder="name" />
-                <br />
-                <label htmlFor="link">Link</label>
                 <br />
                 <input type="text" id="link" placeholder="ex:google.com" />
                 <br />

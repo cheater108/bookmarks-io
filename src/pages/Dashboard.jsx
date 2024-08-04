@@ -4,11 +4,15 @@ import styles from "./Dashboard.module.css";
 import GroupList from "../components/GroupList";
 import Bookmarks from "../components/Bookmarks";
 import NewBookmark from "../components/NewBookmark";
+import { createContext } from "react";
+
+export const DashboardContext = createContext();
 
 export default function Dashboard() {
     const [modal, setModal] = useState(false);
     const [color, setColor] = useState(0);
     const [dash, setDash] = useState({});
+    const [selectedGrp, setSelectedGrp] = useState(false);
     function toggleModal() {
         setModal(!modal);
     }
@@ -19,26 +23,37 @@ export default function Dashboard() {
                 "http://localhost:3000/api/users/test"
             );
             const dashData = await dashboard.json();
-
+            console.log(dashData.dashboard);
             setDash(dashData.dashboard);
         }
         fetchData();
     }, []);
     return (
-        <div className="content">
-            <DashboardTop
-                color={color}
-                setColor={setColor}
-                dashName={dash?.name}
-            />
-            <div className={styles.below}>
-                <div className={styles.div1}>div1</div>
-                <div className={styles.div2}>div2</div>
-                {/* <GroupList groups={dash?.groups} /> */}
-                {/* <Bookmarks toggleModal={toggleModal} /> */}
-                {/* <SiteFrame /> */}
-            </div>
-            <NewBookmark modal={modal} toggleModal={toggleModal} />
+        <div className={styles.container}>
+            <DashboardContext.Provider
+                value={{ dash, selectedGrp, setSelectedGrp }}
+            >
+                <div className={styles.inner_container}>
+                    <DashboardTop
+                        color={color}
+                        setColor={setColor}
+                        dashName={dash?.name}
+                    />
+                    <div className={styles.below}>
+                        <div className={styles.div1}>
+                            <GroupList groups={dash?.groups} />
+                        </div>
+                        <div className={styles.div2}>
+                            {selectedGrp && (
+                                <Bookmarks toggleModal={toggleModal} />
+                            )}
+                        </div>
+
+                        {/* <SiteFrame /> */}
+                    </div>
+                </div>
+                <NewBookmark modal={modal} toggleModal={toggleModal} />
+            </DashboardContext.Provider>
         </div>
     );
 }
