@@ -1,0 +1,61 @@
+.nav {
+    display: flex;
+    padding: 0.5em 1em;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 0.3px solid rgba(0, 0, 0, 0.1);
+}
+
+.left {
+    display: flex;
+    gap: 2em;
+    align-items: center;
+}
+
+.link {
+    letter-spacing: 2px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+.link:hover {
+    color: var(--color-primary);
+}
+
+.logo {
+    color: var(--color-primary);
+    font-family: Single Day;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.right {
+    display: flex;
+    gap: 1em;
+    align-items: center;
+}
+
+.right button {
+    padding: 0.5em 1.5em;
+    font-size: medium;
+    font-weight: 500;
+    letter-spacing: 2px;
+    border-radius: 22em;
+}
+
+.sign_in {
+    background-color: var(--color-primary);
+    color: white;
+    cursor: pointer;
+    border: none;
+}
+
+.sign_in:hover {
+    background-color: black;
+}
+
+.sign_up {
+    background-color: var(--color-secondary);
+    cursor: pointer;
+    border: none;
+}
