@@ -12,6 +12,13 @@ export default function NewBookmark({ modal, toggleModal }) {
                 <br />
                 <input type="text" id="link" placeholder="ex:google.com" />
                 <br />
+                <textarea
+                    name="description"
+                    id="description"
+                    placeholder="Summary or why you want to save this site..."
+                    rows="6"
+                ></textarea>
+                <br />
                 <button>Add bookmark</button>
                 <div className={styles.close} onClick={toggleModal}>
                     &#x2716;

@@ -12,7 +12,12 @@ export default function Bookmarks({ toggleModal }) {
             <h1 className={styles.heading}>{selectedGrp.name}</h1>
             <div className={styles.links}>
                 {selectedGrp.links.map((e) => (
-                    <Bookmark title={e.title} link={e.link} />
+                    <Bookmark
+                        title={e.title}
+                        link={e.link}
+                        description={e.description}
+                        key={e._id}
+                    />
                 ))}
             </div>
             <button className={styles.addbtn} onClick={toggleModal}>

@@ -16,14 +16,19 @@ const data = [
                     {
                         title: "Onepunch-man",
                         link: "https://chapmanganato.to/manga-wd951838",
+                        description:
+                            "Saitama who has power to defeat anyone with a single punch",
                     },
                     {
                         title: "Solo leveling",
                         link: "https://chapmanganato.to/manga-dr980474",
+                        description:
+                            "Manhwa where Sung jinwoo levels up like a game character",
                     },
                     {
                         title: "Jujutsu Kaisen",
                         link: "https://chapmanganato.to/manga-ba979135",
+                        description: "Goated manga and goated gojo satoru",
                     },
                 ],
             },
@@ -37,6 +42,7 @@ const data = [
                     {
                         title: "Band 4 Band",
                         link: "https://www.youtube.com/watch?v=pDddlvCfTiw&pp=ygUJYmFuZDRiYW5k",
+                        description: "Lil baby and central cee gives a banger",
                     },
                 ],
             },

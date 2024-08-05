@@ -15,14 +15,16 @@
     background-color: aliceblue;
     padding: 1em;
     border-radius: 12px;
+    display: flex;
+    flex-direction: column;
     position: relative;
     z-index: 2;
 }
 .form input {
     background-color: rgb(213, 231, 247);
     border: none;
-    margin-bottom: 0.5em;
-    margin-top: 0.5em;
+    /* margin-bottom: 0.5em;
+    margin-top: 0.5em; */
     height: 20px;
     width: 300px;
     padding: 1em 0.5em;
@@ -39,7 +41,14 @@
     background-color: black;
 
     font-weight: 500;
-    margin-top: 10px;
+}
+
+.form textarea {
+    background-color: rgb(213, 231, 247);
+    border: none;
+    padding: 1em 0.5em;
+    border-radius: 5px;
+    resize: none;
 }
 
 .form button:hover {
