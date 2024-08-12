@@ -18,4 +18,8 @@ route.get("/:id", async (req, res) => {
     });
 });
 
+route.post("/:id/groups", async (req, res) => {
+    console.log(req.params);
+});
+
 export default route;

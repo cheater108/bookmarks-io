@@ -2,6 +2,8 @@ import React from "react";
 import styles from "./DashboardTop.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { Form } from "react-router-dom";
+
 export default function DashboardTop({ color, setColor, dashName }) {
     const colors = ["#ffff7e", "#9aff7e", "#7edaff", "#db7eff", "#ff7e9f"];
     function handleColor(ind) {
@@ -15,7 +17,7 @@ export default function DashboardTop({ color, setColor, dashName }) {
                     type="text"
                     placeholder="Add group"
                 />
-                <button className={styles.btn}>
+                <button type="submit" className={styles.btn}>
                     <FontAwesomeIcon icon={faPlus} size="xs" />
                 </button>
             </div>

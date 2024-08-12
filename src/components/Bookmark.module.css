@@ -39,3 +39,8 @@
 .description {
     color: rgba(0, 0, 0, 0.742);
 }
+
+.delete {
+    border: none;
+    background-color: transparent;
+}

@@ -36,7 +36,7 @@ export default function Bookmark({ title, link, description }) {
                         </i>
                     )}
                     {hover && (
-                        <button>
+                        <button className={styles.delete}>
                             <FontAwesomeIcon icon={faTrash} />
                         </button>
                     )}
