@@ -1,14 +1,27 @@
-import React from "react";
+import React, { useContext, useRef } from "react";
 import styles from "./DashboardTop.module.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { Form } from "react-router-dom";
+import postGroup from "../api/postGroup";
+import { DashboardContext } from "../pages/Dashboard";
+import fetchDashboard from "../api/fetchDashboard";
 
 export default function DashboardTop({ color, setColor, dashName }) {
+    const { setDash } = useContext(DashboardContext);
+    const inputRef = useRef();
     const colors = ["#ffff7e", "#9aff7e", "#7edaff", "#db7eff", "#ff7e9f"];
+
     function handleColor(ind) {
         setColor(ind);
     }
+
+    async function addGroup() {
+        await postGroup("test", inputRef.current.value);
+        inputRef.current.value = "";
+        const dashData = await fetchDashboard();
+        setDash(dashData.dashboard);
+    }
+
     return (
         <div className={styles.top}>
             <div className={styles.left}>
@@ -16,8 +29,9 @@ export default function DashboardTop({ color, setColor, dashName }) {
                     className={styles.addGroup}
                     type="text"
                     placeholder="Add group"
+                    ref={inputRef}
                 />
-                <button type="submit" className={styles.btn}>
+                <button type="submit" className={styles.btn} onClick={addGroup}>
                     <FontAwesomeIcon icon={faPlus} size="xs" />
                 </button>
             </div>

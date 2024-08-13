@@ -10,6 +10,7 @@ mongoose
     .then(() => console.log("connected to database"));
 
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use("/api/users", userRouter);
 
 app.listen(3000, () => {

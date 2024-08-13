@@ -5,6 +5,7 @@ import GroupList from "../components/GroupList";
 import Bookmarks from "../components/Bookmarks";
 import NewBookmark from "../components/NewBookmark";
 import { createContext } from "react";
+import fetchDashboard from "../api/fetchDashboard";
 
 export const DashboardContext = createContext();
 
@@ -19,10 +20,7 @@ export default function Dashboard() {
 
     useEffect(() => {
         async function fetchData() {
-            const dashboard = await fetch(
-                "http://localhost:3000/api/users/test"
-            );
-            const dashData = await dashboard.json();
+            const dashData = await fetchDashboard();
             console.log(dashData.dashboard);
             setDash(dashData.dashboard);
         }
@@ -31,7 +29,7 @@ export default function Dashboard() {
     return (
         <div className={styles.container}>
             <DashboardContext.Provider
-                value={{ dash, selectedGrp, setSelectedGrp }}
+                value={{ dash, setDash, selectedGrp, setSelectedGrp }}
             >
                 <div className={styles.inner_container}>
                     <DashboardTop
