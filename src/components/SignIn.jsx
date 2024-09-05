@@ -1,8 +1,11 @@
 import React, { useState } from "react";
 import styles from "./SignIn.module.css";
 import validateUserLogin from "../utils/validateUserLogin";
+import postLogin from "../api/postLogin";
+import { useNavigate } from "react-router-dom";
 
 export default function SignIn() {
+    const navigate = useNavigate();
     const [user, setUser] = useState({ username: "", password: "" });
     const [error, setError] = useState({ username: false, password: false });
 
@@ -10,6 +13,11 @@ export default function SignIn() {
         e.preventDefault();
         const res = validateUserLogin(user);
         setError(res.error);
+        if (res.valid) {
+            postLogin(user)
+                .then(() => navigate("/dashboard"))
+                .catch((err) => console.log(err.message));
+        }
     }
 
     return (

@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import cors from "cors";
 import userRouter from "./routes/users.js";
+import bucketRouter from "./routes/buckets.js";
 
 const app = express();
 
@@ -11,7 +12,8 @@ mongoose
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
-app.use("/api/users", userRouter);
+app.use("/api/user", userRouter);
+app.use("/api/buckets", bucketRouter);
 
 app.listen(3000, () => {
     console.log("server started on port 3000");

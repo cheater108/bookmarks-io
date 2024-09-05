@@ -17,7 +17,6 @@ export default function SignUp() {
         e.preventDefault();
         const res = validateUserRegistration(user);
         setError(res.error);
-        console.log(res);
         if (res.valid) {
             navigate("/dashboard");
         }

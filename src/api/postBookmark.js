@@ -1,8 +1,8 @@
-import axios from "axios";
+import api from "./api";
 
 async function postBookmark(id, grp_id, bookmark) {
-    await axios.post(
-        `http://localhost:3000/api/users/${id}/groups/${grp_id}/bookmarks`,
+    await api.post(
+        `http://localhost:3000/api/buckets/groups/${grp_id}/bookmarks`,
         bookmark,
         {
             headers: {

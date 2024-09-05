@@ -39,5 +39,7 @@
 }
 
 .links {
+    height: 60vh;
+    overflow-y: auto;
     padding: 1em;
 }

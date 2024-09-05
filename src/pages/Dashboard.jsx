@@ -6,10 +6,12 @@ import Bookmarks from "../components/Bookmarks";
 import NewBookmark from "../components/NewBookmark";
 import { createContext } from "react";
 import fetchDashboard from "../api/fetchDashboard";
+import { useNavigate } from "react-router-dom";
 
 export const DashboardContext = createContext();
 
 export default function Dashboard() {
+    const navigate = useNavigate();
     const [modal, setModal] = useState(false);
     const [color, setColor] = useState(0);
     const [dash, setDash] = useState({});
@@ -20,9 +22,13 @@ export default function Dashboard() {
 
     useEffect(() => {
         async function fetchData() {
-            const dashData = await fetchDashboard();
-            console.log(dashData.dashboard);
-            setDash(dashData.dashboard);
+            try {
+                const dashData = await fetchDashboard();
+                setDash(dashData);
+            } catch (err) {
+                localStorage.removeItem("token");
+                navigate("/");
+            }
         }
         fetchData();
     }, []);

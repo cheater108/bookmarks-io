@@ -21,7 +21,7 @@ export default function Bookmark({ title, link, description }) {
             <div className={styles.top}>
                 <div className={styles.left}>
                     <img
-                        src={`https://api.statvoo.com/favicon/${domain}`}
+                        src={`http://www.google.com/s2/favicons?domain=${domain}`}
                         alt=""
                         className={styles.icon}
                         width="20px"

@@ -22,11 +22,9 @@ export default function NewBookmark({ modal, toggleModal }) {
         }
         toggleModal();
         const dashData = await fetchDashboard();
-        setDash(dashData.dashboard);
+        setDash(dashData);
 
-        setSelectedGrp(
-            dashData.dashboard.groups.find((e) => e._id === selectedGrp._id)
-        );
+        setSelectedGrp(dashData.groups.find((e) => e._id === selectedGrp._id));
     }
     return (
         <div

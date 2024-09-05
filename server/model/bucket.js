@@ -4,6 +4,7 @@ const bucket = new Schema({
     name: {
         type: String,
         required: true,
+        unique: true,
     },
     groups: [
         {

@@ -1,7 +1,7 @@
-import axios from "axios";
+import api from "./api";
 async function postGroup(id, name) {
-    const res = await axios.post(
-        `http://localhost:3000/api/users/${id}/groups`,
+    const res = await api.post(
+        `http://localhost:3000/api/buckets/groups`,
         {
             name,
         },

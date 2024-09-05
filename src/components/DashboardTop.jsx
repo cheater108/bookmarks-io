@@ -19,7 +19,7 @@ export default function DashboardTop({ color, setColor, dashName }) {
         await postGroup("test", inputRef.current.value);
         inputRef.current.value = "";
         const dashData = await fetchDashboard();
-        setDash(dashData.dashboard);
+        setDash(dashData);
     }
 
     return (
