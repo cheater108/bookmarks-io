@@ -16,10 +16,12 @@ export default function DashboardTop({ color, setColor, dashName }) {
     }
 
     async function addGroup() {
-        await postGroup("test", inputRef.current.value);
-        inputRef.current.value = "";
-        const dashData = await fetchDashboard();
-        setDash(dashData);
+        if (inputRef.current.value.length > 0) {
+            await postGroup("test", inputRef.current.value);
+            inputRef.current.value = "";
+            const dashData = await fetchDashboard();
+            setDash(dashData);
+        }
     }
 
     return (

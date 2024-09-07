@@ -1,5 +1,5 @@
 import styles from "./Navbar.module.css";
-import { Link, Outlet, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function Navbar() {
     const navigate = useNavigate();
@@ -14,12 +14,25 @@ function Navbar() {
                 <p className={styles.link}>Features</p>
             </div>
             <div className={styles.right}>
-                <Link to="/signin">
-                    <button className={styles.sign_in}>Sign in</button>
-                </Link>
-                <Link to={"/signup"}>
-                    <button className={styles.sign_up}>Sign up</button>
-                </Link>
+                {localStorage.getItem("token") ? (
+                    <Link to="/">
+                        <button
+                            className={styles.sign_in}
+                            onClick={() => localStorage.removeItem("token")}
+                        >
+                            Sign out
+                        </button>
+                    </Link>
+                ) : (
+                    <>
+                        <Link to="/signin">
+                            <button className={styles.sign_in}>Sign in</button>
+                        </Link>
+                        <Link to={"/signup"}>
+                            <button className={styles.sign_up}>Sign up</button>
+                        </Link>
+                    </>
+                )}
             </div>
         </nav>
     );
