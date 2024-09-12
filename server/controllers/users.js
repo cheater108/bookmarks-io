@@ -2,6 +2,7 @@ import User from "../model/user.js";
 import Bucket from "../model/bucket.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
+import "dotenv/config";
 
 async function handleLogin(req, res) {
     const { username, password } = req.body;
@@ -13,13 +14,14 @@ async function handleLogin(req, res) {
     if (!result) {
         return res.json({ message: "invalid username or password" });
     }
+
     const token = jwt.sign(
         {
             username: user.username,
             dashboard_id: user.dashboard.toString(),
             id: user._id.toString(),
         },
-        "jfejdmd"
+        process.env.SIGN_KEY
     );
     res.json({ token });
 }

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 export default function SignIn() {
     const navigate = useNavigate();
     const [user, setUser] = useState({ username: "", password: "" });
-    const [error, setError] = useState({ username: false, password: false });
+    const [error, setError] = useState({ username: false, login: false });
 
     function handleSubmit(e) {
         e.preventDefault();
@@ -16,13 +16,14 @@ export default function SignIn() {
         if (res.valid) {
             postLogin(user)
                 .then(() => navigate("/dashboard"))
-                .catch((err) => console.log(err.message));
+                .catch((err) => setError({ username: false, login: true }));
         }
     }
 
     return (
         <div className={styles.container}>
             <form action="" className={styles.form}>
+                {error.login && <p>&#9888; Incorrect username or password</p>}
                 <input
                     type="text"
                     id="username"

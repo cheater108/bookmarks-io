@@ -1,11 +1,12 @@
 import axios from "axios";
 
-async function postLogin({ username, password }) {
+async function postUser({ username, password, email }) {
     const res = await axios.post(
-        `/api/user/login`,
+        `/api/user/signup`,
         {
             username,
             password,
+            email,
         },
         {
             headers: {
@@ -13,12 +14,11 @@ async function postLogin({ username, password }) {
             },
         }
     );
-    if (res.data.token) {
-        localStorage.setItem("token", res.data.token);
-        return;
+    if (res.data) {
+        return res.data;
     }
     localStorage.removeItem("token");
     throw Error("Login failed");
 }
 
-export default postLogin;
+export default postUser;

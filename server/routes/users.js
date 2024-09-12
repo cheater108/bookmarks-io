@@ -7,6 +7,4 @@ route.post("/login", handleLogin);
 
 route.post("/signup", handleSignUp);
 
-route.post("/logout", function (req, res, next) {});
-
 export default route;

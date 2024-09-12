@@ -2,6 +2,7 @@ import { useState } from "react";
 import validateUserRegistration from "../utils/validateUserRegistration";
 import styles from "./SignUp.module.css";
 import { useNavigate } from "react-router-dom";
+import postUser from "../api/postUser";
 
 export default function SignUp() {
     const [user, setUser] = useState({ username: "", password: "", email: "" });
@@ -13,12 +14,14 @@ export default function SignUp() {
 
     const navigate = useNavigate();
 
-    function handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
         const res = validateUserRegistration(user);
         setError(res.error);
         if (res.valid) {
-            navigate("/dashboard");
+            postUser(user)
+                .then(() => navigate("/signin"))
+                .catch((err) => navigate("/signup"));
         }
     }
 
