@@ -10,10 +10,12 @@
     padding: 0;
     box-sizing: border-box;
     font-family: Inter;
+    /* outline: 1px solid red; */
 }
 
 body {
     height: 100vh;
+    container-type: size;
 }
 
 #root {

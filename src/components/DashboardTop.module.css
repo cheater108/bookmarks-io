@@ -6,8 +6,9 @@
 }
 
 .left {
-    width: 30%;
     display: flex;
+    flex: 1;
+    justify-content: center;
 }
 
 .addGroup {
@@ -45,6 +46,15 @@
 }
 
 .colors {
-    display: flex;
-    gap: 10px;
+    display: none;
+}
+
+@container (min-width:700px) {
+    .colors {
+        display: flex;
+        gap: 10px;
+    }
+    .left {
+        width: 30%;
+    }
 }

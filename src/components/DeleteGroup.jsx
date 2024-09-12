@@ -1,4 +1,3 @@
-import deleteBookmark from "../api/deleteBookmark";
 import { DashboardContext } from "../pages/Dashboard";
 import styles from "./DeleteBookmark.module.css";
 import React, { useContext } from "react";

@@ -1,9 +1,10 @@
 .nav {
     display: flex;
     padding: 0.5em 1em;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     border-bottom: 0.3px solid rgba(0, 0, 0, 0.1);
+    position: relative;
 }
 
 .left {
@@ -11,28 +12,26 @@
     gap: 2em;
     align-items: center;
 }
-
 .link {
+    display: none;
     letter-spacing: 2px;
     font-weight: 400;
     cursor: pointer;
 }
 
-.link:hover {
-    color: var(--color-primary);
-}
-
 .logo {
     color: var(--color-primary);
     font-family: Single Day;
-    font-size: 2rem;
+    font-size: 2.3rem;
     cursor: pointer;
 }
 
 .right {
-    display: flex;
-    gap: 1em;
-    align-items: center;
+    display: none;
+}
+
+.link:hover {
+    color: var(--color-primary);
 }
 
 .right button {
@@ -58,4 +57,44 @@
     background-color: var(--color-secondary);
     cursor: pointer;
     border: none;
+}
+
+.menu {
+    position: absolute;
+    right: 20px;
+}
+
+.menu_list {
+    background-color: var(--color-secondary);
+    padding: 1em;
+}
+
+.menu_list p {
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+    padding: 0.5em;
+}
+
+@container (min-width:700px) {
+    .nav {
+        justify-content: space-between;
+    }
+    .link {
+        display: flex;
+        letter-spacing: 2px;
+        font-weight: 400;
+        cursor: pointer;
+    }
+    .right {
+        display: flex;
+        gap: 1em;
+        align-items: center;
+    }
+    .menu {
+        display: none;
+    }
+    .menu_list {
+        display: none;
+    }
 }

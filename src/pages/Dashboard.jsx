@@ -56,7 +56,7 @@ export default function Dashboard() {
                         {/* <SiteFrame /> */}
                     </div>
                 </div>
-                <NewBookmark modal={modal} toggleModal={toggleModal} />
+                {modal && <NewBookmark toggleModal={toggleModal} />}
             </DashboardContext.Provider>
         </div>
     );

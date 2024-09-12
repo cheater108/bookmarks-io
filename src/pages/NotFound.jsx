@@ -4,7 +4,6 @@ import { Navbar } from "../components/Navbar";
 export default function NotFound() {
     return (
         <>
-            <Navbar />
             <div
                 style={{
                     display: "flex",

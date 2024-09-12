@@ -4,7 +4,7 @@ import { DashboardContext } from "../pages/Dashboard";
 import postBookmark from "../api/postBookmark";
 import fetchDashboard from "../api/fetchDashboard";
 
-export default function NewBookmark({ modal, toggleModal }) {
+export default function NewBookmark({ toggleModal }) {
     const { selectedGrp, setDash, setSelectedGrp } =
         useContext(DashboardContext);
     const name = useRef();
@@ -27,10 +27,7 @@ export default function NewBookmark({ modal, toggleModal }) {
         setSelectedGrp(dashData.groups.find((e) => e._id === selectedGrp._id));
     }
     return (
-        <div
-            className={styles.modal}
-            style={{ display: modal ? "flex" : "none" }}
-        >
+        <div className={styles.modal}>
             <form
                 method="post"
                 className={styles.form}

@@ -14,12 +14,7 @@ export default function GroupMenu({ name, id }) {
         }
     }
     return (
-        <div
-            className={styles.group}
-            onClick={() => handleClick(id)}
-            onMouseEnter={() => sethover(true)}
-            onMouseLeave={() => sethover(false)}
-        >
+        <div className={styles.group} onClick={() => handleClick(id)}>
             {name}
         </div>
     );

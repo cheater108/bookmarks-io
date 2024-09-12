@@ -18,12 +18,25 @@
 }
 
 .div1 {
-    grid-area: 1/1/2/2;
+    grid-area: 1/1/2/5;
     padding: 1em;
     /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
 }
+
 .div2 {
-    grid-area: 1 / 2 / 2 / 5;
+    grid-area: 1 / 1 / 2 / 5;
     padding: 1em;
     /* background-color: rgba(167, 143, 99, 0.5); */
+}
+
+@container (min-width:700px) {
+    .div1 {
+        grid-area: 1/1/2/2;
+        /* border-right: 1px solid rgba(0, 0, 0, 0.1); */
+    }
+    .div2 {
+        grid-area: 1 / 2 / 2 / 5;
+        padding: 1em;
+        /* background-color: rgba(167, 143, 99, 0.5); */
+    }
 }
