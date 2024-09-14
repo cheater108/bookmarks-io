@@ -3,7 +3,7 @@ import api from "./api";
 async function fetchDashboard(id) {
     const res = await api.get("/buckets/");
     if (res.data.error) {
-        return Error("Unauthorized");
+        throw Error("Unauthorized");
     }
     return res.data;
 }

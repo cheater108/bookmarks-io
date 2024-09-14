@@ -4,8 +4,8 @@ async function postLogin({ username, password }) {
     const res = await axios.post(
         `/api/user/login`,
         {
-            username: username.strip(),
-            password: password.strip(),
+            username,
+            password,
         },
         {
             headers: {

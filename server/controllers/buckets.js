@@ -1,4 +1,5 @@
 import Bucket from "../model/bucket.js";
+import z from "zod";
 
 async function sendDashboard(req, res) {
     const { dashboard_id } = req.user;
@@ -14,7 +15,16 @@ async function sendDashboard(req, res) {
 
 async function postGroup(req, res) {
     const { dashboard_id } = req.user;
+    const groupSchema = z.object({
+        name: z.string(),
+    });
+    const valid = groupSchema.safeParse(req.body);
+    if (!valid.success) {
+        const message = `${valid.error.issues[0].path[0]} ${valid.error.issues[0].message}`;
+        return res.json({ error: message });
+    }
     const { name } = req.body;
+
     const dashboard = await Bucket.findById(dashboard_id);
     if (!dashboard) {
         return res.json({ error: "not found" });
@@ -46,6 +56,16 @@ async function postBookmark(req, res) {
     const { dashboard_id } = req.user;
     const { grp_id } = req.params;
     const { name, link, desc } = req.body;
+    const bookmarkSchema = z.object({
+        name: z.string().trim().min(1),
+        link: z.string().trim().min(1),
+    });
+
+    const valid = bookmarkSchema.safeParse(req.body);
+    if (!valid.success) {
+        const message = `${valid.error.issues[0].path[0]} ${valid.error.issues[0].message}`;
+        return res.json({ error: message });
+    }
     const dashboard = await Bucket.findById(dashboard_id);
     if (!dashboard) {
         return res.json({ error: "not found" });
@@ -91,6 +111,17 @@ async function editBookmark(req, res) {
     const { grp_id } = req.params;
     const { bookmark_id } = req.params;
     const { name, link, desc } = req.body;
+
+    const bookmarkSchema = z.object({
+        name: z.string().trim().min(1),
+        link: z.string().trim().min(1),
+    });
+
+    const valid = bookmarkSchema.safeParse(req.body);
+    if (!valid.success) {
+        const message = `${valid.error.issues[0].path[0]} ${valid.error.issues[0].message}`;
+        return res.json({ error: message });
+    }
     const dashboard = await Bucket.findById(dashboard_id);
     if (!dashboard) {
         return res.json({ error: "not found" });

@@ -1,6 +1,3 @@
-import React from "react";
-import { Navbar } from "../components/Navbar";
-
 export default function NotFound() {
     return (
         <>
@@ -10,13 +7,14 @@ export default function NotFound() {
                     flexGrow: "1",
                     justifyContent: "center",
                     alignItems: "center",
-                    backgroundColor: "rgb(87, 85, 85) ",
-                    color: "white",
+                    color: "black",
                     fontSize: "1.5rem",
                     letterSpacing: "2px",
                 }}
             >
-                <h1>Page not found - 404</h1>
+                <h1 style={{ color: "#2f27ce" }}>
+                    &#9888; Page not found - 404
+                </h1>
             </div>
         </>
     );
