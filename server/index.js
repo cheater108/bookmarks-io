@@ -7,15 +7,15 @@ import path from "path";
 
 const app = express();
 
-// mongoose
-//     .connect(
-//         `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.lcqro.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/bookmarks-io`
-//     )
-//     .then(() => console.log("connected to database"));
-
 mongoose
-    .connect(`mongodb://127.0.0.1:27017/bookmarks-io`)
+    .connect(
+        `mongodb+srv://${process.env.MONGO_USER}:${process.env.MONGO_PASS}@cluster0.lcqro.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0/bookmarks-io`
+    )
     .then(() => console.log("connected to database"));
+
+// mongoose
+//     .connect(`mongodb://127.0.0.1:27017/bookmarks-io`)
+//     .then(() => console.log("connected to database"));
 
 app.use(cors());
 app.use(express.urlencoded({ extended: true }));
