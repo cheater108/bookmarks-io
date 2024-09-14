@@ -14,11 +14,16 @@ async function postUser({ username, password, email }) {
             },
         }
     );
+
+    if (res.data.error) {
+        localStorage.removeItem("token");
+        throw Error(res.data.error);
+    }
     if (res.data) {
         return res.data;
     }
     localStorage.removeItem("token");
-    throw Error("Login failed");
+    throw Error("Signup failed");
 }
 
 export default postUser;

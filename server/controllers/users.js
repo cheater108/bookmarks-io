@@ -29,6 +29,18 @@ async function handleLogin(req, res) {
 async function handleSignUp(req, res) {
     const { username, email, password } = req.body;
     const hash = await bcrypt.hash(password, 10);
+    const userName = await User.findOne({ username });
+    const userEmail = await User.findOne({ email });
+
+    console.log(userName);
+
+    if (userName) {
+        console.log("inside");
+        return res.json({ error: "Username already exists" });
+    }
+    if (userEmail) {
+        return res.json({ error: "email already exists" });
+    }
     const dashboard = new Bucket({
         name: username,
         groups: [],

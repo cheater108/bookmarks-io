@@ -7,7 +7,7 @@ async function isAuthorizedUser(req, res, next) {
         req.user = payload;
         next();
     } catch (err) {
-        next(err);
+        res.json({ error: "invalid token" });
     }
 }
 

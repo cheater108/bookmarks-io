@@ -7,6 +7,7 @@
         "dev": "vite",
         "host": "vite --host",
         "build": "vite build",
+        "start": "node ./server/index.js",
         "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview"
     },
@@ -25,6 +26,7 @@
         "nodemon": "^3.1.4",
         "react": "^18.3.1",
         "react-dom": "^18.3.1",
+        "react-error-boundary": "^4.0.13",
         "react-router-dom": "^6.24.1"
     },
     "devDependencies": {

@@ -1,7 +1,11 @@
 import styles from "./Bookmark.module.css";
 import extractDomain from "../utils/extractDomain";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPenToSquare, faTrash } from "@fortawesome/free-solid-svg-icons";
+import {
+    faPenToSquare,
+    faTrash,
+    faLink,
+} from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import EditBookmark from "../components/EditBookmark";
 import DeleteBookmark from "./DeleteBookmark";
@@ -12,21 +16,23 @@ export default function Bookmark({ title, link, description, id }) {
     const [hover, setHover] = useState(false);
     const [editBook, setEditBook] = useState(false);
     const [del, setDelete] = useState(false);
-    const [bookmark_id, setbookmark_id] = useState();
+
     function handleClick() {
+        setHover(!hover);
+    }
+
+    function handleLinkClick() {
         window.open(link, "_blank");
     }
 
     function handleEdit(e) {
         e.stopPropagation();
         setEditBook(true);
-        setbookmark_id(id);
     }
 
     function handleDelete(e) {
         e.stopPropagation();
         setDelete(true);
-        setbookmark_id(id);
     }
     return (
         <>
@@ -66,22 +72,24 @@ export default function Bookmark({ title, link, description, id }) {
                 {hover && (
                     <div className={styles.below}>
                         <p className={styles.description}>{description}</p>
+                        <p
+                            className={styles.in_link}
+                            href={link}
+                            target="_blank"
+                            onClick={handleLinkClick}
+                            rel="noopener noreferrer"
+                        >
+                            <FontAwesomeIcon icon={faLink} />
+                            &nbsp; Link : &nbsp;
+                            {link}
+                        </p>
                     </div>
                 )}
             </div>
             {editBook && (
-                <EditBookmark
-                    modal={editBook}
-                    toggleModal={setEditBook}
-                    bookmark_id={bookmark_id}
-                />
+                <EditBookmark toggleModal={setEditBook} bookmark_id={id} />
             )}
-            {del && (
-                <DeleteBookmark
-                    setDelete={setDelete}
-                    bookmark_id={bookmark_id}
-                />
-            )}
+            {del && <DeleteBookmark setDelete={setDelete} bookmark_id={id} />}
         </>
     );
 }

@@ -5,7 +5,6 @@
 }
 
 .link:hover {
-    cursor: pointer;
     background-color: rgb(213, 231, 247);
 }
 
@@ -13,6 +12,7 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    cursor: pointer;
 }
 
 .below {
@@ -23,6 +23,10 @@
     display: flex;
     gap: 10px;
     align-items: center;
+}
+
+.left span {
+    display: none;
 }
 
 .right {
@@ -40,8 +44,30 @@
     color: rgba(0, 0, 0, 0.742);
 }
 
+.in_link {
+    text-overflow: ellipsis;
+    color: rgba(0, 0, 0, 0.742);
+    font-style: italic;
+    font-size: 0.8rem;
+    background-color: rgb(191, 221, 248);
+    border-radius: 9px;
+    padding: 0.5em;
+    margin-top: 10px;
+}
+
+.in_link:hover {
+    cursor: pointer;
+    text-decoration: underline;
+}
+
 .delete {
     border: none;
     background-color: transparent;
     cursor: pointer;
+}
+
+@container (min-width:700px) {
+    .left span {
+        display: unset;
+    }
 }

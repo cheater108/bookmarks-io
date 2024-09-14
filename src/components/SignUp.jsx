@@ -12,6 +12,8 @@ export default function SignUp() {
         email: false,
     });
 
+    const [serverError, setServerError] = useState(false);
+
     const navigate = useNavigate();
 
     async function handleSubmit(e) {
@@ -21,7 +23,7 @@ export default function SignUp() {
         if (res.valid) {
             postUser(user)
                 .then(() => navigate("/signin"))
-                .catch((err) => navigate("/signup"));
+                .catch((err) => setServerError(err.message));
         }
     }
 
@@ -39,7 +41,7 @@ export default function SignUp() {
                     }
                 />
                 {error.email && <p>&#9888; Please provide valid email</p>}
-
+                {serverError && <p>&#9888; {serverError}</p>}
                 <input
                     type="text"
                     id="username"
