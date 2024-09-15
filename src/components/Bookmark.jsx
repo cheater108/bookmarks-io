@@ -74,8 +74,6 @@ export default function Bookmark({ title, link, description, id }) {
                         <p className={styles.description}>{description}</p>
                         <p
                             className={styles.in_link}
-                            href={link}
-                            target="_blank"
                             onClick={handleLinkClick}
                             rel="noopener noreferrer"
                         >

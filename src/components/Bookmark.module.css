@@ -45,8 +45,10 @@
 }
 
 .in_link {
-    text-overflow: ellipsis;
     color: rgba(0, 0, 0, 0.742);
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
     font-style: italic;
     font-size: 0.8rem;
     background-color: rgb(191, 221, 248);
