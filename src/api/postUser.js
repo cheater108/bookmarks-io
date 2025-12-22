@@ -1,8 +1,8 @@
-import axios from "axios";
+import api from "./api";
 
 async function postUser({ username, password, email }) {
-    const res = await axios.post(
-        `/api/user/signup`,
+    const res = await api.post(
+        `/user/signup`,
         {
             username,
             password,

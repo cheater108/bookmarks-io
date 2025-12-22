@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import EditBookmark from "../components/EditBookmark";
 import DeleteBookmark from "./DeleteBookmark";
+import FrameView from "./FrameView";
 
 // fav icon img url : http://www.google.com/s2/favicons?domain=www.google.com
 export default function Bookmark({ title, link, description, id }) {
@@ -16,6 +17,7 @@ export default function Bookmark({ title, link, description, id }) {
     const [hover, setHover] = useState(false);
     const [editBook, setEditBook] = useState(false);
     const [del, setDelete] = useState(false);
+    const [frame, setFrame] = useState(false);
 
     function handleClick() {
         setHover(!hover);
@@ -33,6 +35,10 @@ export default function Bookmark({ title, link, description, id }) {
     function handleDelete(e) {
         e.stopPropagation();
         setDelete(true);
+    }
+    function handleFrame(e) {
+        e.stopPropagation();
+        setFrame(true);
     }
     return (
         <>
@@ -54,6 +60,11 @@ export default function Bookmark({ title, link, description, id }) {
                         <span className={styles.italics}> - {domain}</span>
                     </div>
                     <div className={styles.right}>
+                        {hover && (
+                            <i onClick={handleFrame}>
+                                <FontAwesomeIcon icon={faPenToSquare} />
+                            </i>
+                        )}
                         {hover && (
                             <i onClick={handleEdit}>
                                 <FontAwesomeIcon icon={faPenToSquare} />
@@ -88,6 +99,7 @@ export default function Bookmark({ title, link, description, id }) {
                 <EditBookmark toggleModal={setEditBook} bookmark_id={id} />
             )}
             {del && <DeleteBookmark setDelete={setDelete} bookmark_id={id} />}
+            {frame && <FrameView url={link} toggleModal={setFrame} />}
         </>
     );
 }
